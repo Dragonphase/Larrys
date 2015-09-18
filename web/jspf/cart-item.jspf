@@ -1,0 +1,25 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<tr>
+    <td data-th="Product">
+        <div class="row">
+            <div class="col-sm-10">
+                <h4 class="nomargin">${param.name}</h4>
+                <p>${param.description}</p>
+            </div>
+        </div>
+    </td>
+    <td data-th="Price">&pound;${param.price}</td>
+    <td data-th="Quantity">
+        <input type="number" class="form-control text-center" value="${param.quantity}" name="quantity" form="updateForm_${param.id}" />
+    </td>
+    <td data-th=""></td>
+    <td class="actions" data-th="">
+        <form action="<c:url value='updateCart'/>" method="post" id="updateForm_${param.id}">
+            <input type="hidden" name="productId" value="${param.id}" />
+            <button type="submit" name="submit" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-refresh"></i></button>
+            <button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
+        </form>
+    </td>
+</tr>

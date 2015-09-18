@@ -1,0 +1,20 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+
+            <footer class="footer panel-footer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Larry's <% out.print(new SimpleDateFormat("yyyy").format(new Date())); %></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

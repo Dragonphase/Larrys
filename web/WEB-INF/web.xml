@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <session-config>
+        <session-timeout>
+            10
+        </session-timeout>
+    </session-config>
+
+    <jsp-config>
+        <jsp-property-group>
+            <description>header and footer settings</description>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/jspf/header.jspf</include-prelude>
+            <include-coda>/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+        <jsp-property-group>
+            <url-pattern>*.jspf</url-pattern>
+        </jsp-property-group>
+    </jsp-config>
+
+    <!--<resource-ref>
+        <description>Connects to database for Larrys application</description>
+        <res-ref-name>jdbc/larrys</res-ref-name>
+        <res-type>javax.sql.ConnectionPoolDataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>-->
+
+    <context-param>
+        <description>The relative path to product images</description>
+        <param-name>productImagePath</param-name>
+        <param-value>img/products/</param-value>
+    </context-param>
+    <context-param>
+        <description>The relative path to category images</description>
+        <param-name>categoryImagePath</param-name>
+        <param-value>img/categories/</param-value>
+    </context-param>
+    <context-param>
+        <description>The delivery surcharge applied to all orders</description>
+        <param-name>deliverySurcharge</param-name>
+        <param-value>3.00</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>controller.ControllerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addToCart</url-pattern>
+        <url-pattern>/updateCart</url-pattern>
+        <url-pattern>/viewCart</url-pattern>
+        <url-pattern>/category</url-pattern>
+        <url-pattern>/confirmation</url-pattern>
+    </servlet-mapping>
+</web-app>
